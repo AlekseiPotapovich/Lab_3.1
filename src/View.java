@@ -231,7 +231,7 @@ public class View extends JFrame {
 			arrayLabel.setVisible(true);
 			
 		}
-		//layout.setColumns(1);
+		
 		//layout = new GridLayout(1, 1);
 		labelPanel.add(arrayLabel);//, BorderLayout.CENTER);
 		add(labelPanel, BorderLayout.NORTH);
