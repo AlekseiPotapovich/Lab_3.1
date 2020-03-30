@@ -3,7 +3,7 @@ import java.util.*;
 public class Flat extends Adres{
 	private int room;
 	private String tenants;
-	List <Human> tent = new ArrayList<>();
+	static List <Human> tent = new ArrayList<>();
 	Human h;
 	
 	public Flat(int roomR) {//String tenantsR) {

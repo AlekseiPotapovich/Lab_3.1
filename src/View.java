@@ -104,8 +104,11 @@ public class View extends JFrame {
 				labelPanel.setLayout(layout);
 				add(labelPanel,BorderLayout.WEST);
 				
+				tf1.setText("");
 				fieldPanel.add(tf1, BorderLayout.NORTH);
+				tf2.setText("");
 				fieldPanel.add(tf2, BorderLayout.CENTER);
+				tf3.setText("");
 				fieldPanel.add(tf3, BorderLayout.SOUTH);
 				
 				
@@ -121,6 +124,7 @@ public class View extends JFrame {
 				buttonPanel.add(enter);
 				back.setVisible(true);
 				enter.setVisible(true);
+				showTent.setVisible(false);
 		
 			}
 		});
@@ -159,13 +163,15 @@ public class View extends JFrame {
 		
 		showTent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				arrayLabel.setVisible(false);
-				roomLabel.setVisible(true);
+				//arrayLabel.setVisible(false);
+				//labelPanel.remove(arrayLabel);
+				//roomLabel.setVisible(true);
 				String hum1 = "<html>Room ¹" + r1.getNumberOfRoom() + "<br/>" + r1.showTent() + "/html";
-				roomLabel.setText(hum1);
-				labelPanel.add(roomLabel);//, BorderLayout.CENTER);
-				//add(labelPanel, BorderLayout.NORTH);
-				
+				arrayLabel.setText(hum1);
+				//roomLabel.setText(hum1);
+				//labelPanel.add(roomLabel);//, BorderLayout.CENTER);
+				//add(labelPanel, BorderLayout.CENTER);
+				back.setVisible(true);
 				
 			}
 		});
@@ -176,6 +182,8 @@ public class View extends JFrame {
 				//r1 = new Flat(adress, humans.getHuman(index));//HumanArray.humans.get(index).toString());
 				r1.acsseptTenat(adress, humans.getHuman(index));
 				showTent.setVisible(true);
+				if(Flat.tent.isEmpty() == false)
+					moveOut.setVisible(true);
 				
 			}
 		});
@@ -194,7 +202,8 @@ public class View extends JFrame {
 				arrayLabel.setText(HumanArray.humans.get(index).toString());
 				
 				moveIn.setVisible(true);
-				moveOut.setVisible(true);
+				if(Flat.tent.isEmpty() == false)
+					moveOut.setVisible(true);
 				action.setVisible(false);
 				addH.setVisible(false);
 				back.setVisible(true);
@@ -231,7 +240,8 @@ public class View extends JFrame {
 			arrayLabel.setVisible(true);
 			
 		}
-		
+		if(Flat.tent.isEmpty() == false)
+			showTent.setVisible(true);
 		//layout = new GridLayout(1, 1);
 		labelPanel.add(arrayLabel);//, BorderLayout.CENTER);
 		add(labelPanel, BorderLayout.NORTH);
